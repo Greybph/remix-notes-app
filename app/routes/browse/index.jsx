@@ -1,3 +1,4 @@
+import { Link } from 'remix'
 import { useLoaderData } from 'remix'
 import Notes from '~/models/Notes'
 
@@ -11,8 +12,14 @@ function Browse() {
 	return (
 		<div>
 			<h1>Browse All Notes</h1>
-			{notes.map((n) => {
-				return <h1>{n.title}</h1>
+			{notes.map((note) => {
+				return (
+					<ul>
+						<li>
+							<Link to={note._id}>{note.title}</Link>
+						</li>
+					</ul>
+				)
 			})}
 		</div>
 	)
