@@ -3,7 +3,7 @@ import Notes from '../../models/Notes'
 
 export async function loader({ params }) {
 	const id = params.id
-	const note = await Notes.findOne({ id })
+	const note = await Notes.findById(id)
 	return note
 }
 
