@@ -1,5 +1,4 @@
-import { Link } from 'remix'
-import { useLoaderData } from 'remix'
+import { useLoaderData, Link, Outlet } from 'remix'
 import Notes from '~/models/Notes'
 
 export async function loader() {
@@ -10,13 +9,14 @@ export async function loader() {
 function Browse() {
 	const notes = useLoaderData()
 	return (
-		<div>
-			<h1>Browse All Notes</h1>
+		<div className='browse-container'>
+			<h2>Browse All Notes</h2>
 			{notes.map((note) => {
 				return (
 					<ul>
 						<li>
 							<Link to={note._id}>{note.title}</Link>
+							<p>{note.createdAt}</p>
 						</li>
 					</ul>
 				)

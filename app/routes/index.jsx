@@ -21,10 +21,10 @@ export default function Index() {
 	const title = useActionData()
 	const notes = useLoaderData()
 	return (
-		<>
+		<main>
 			<TitleForm />
 			{title && <FullForm title={title} />}
 			<RecentNotes notes={notes} />
-		</>
+		</main>
 	)
 }

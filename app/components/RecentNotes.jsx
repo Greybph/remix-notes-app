@@ -1,12 +1,13 @@
+import { Link } from 'remix'
+
 function RecentNotes({ notes }) {
 	return (
-		<div>
-			<h1>Recent Notes</h1>
+		<div className='recent-container'>
+			<h2>Recent Notes</h2>
 			{notes.map((n) => (
-				<div>
-					<h1>{n.title}</h1>
-					<h3>{n.body}</h3>
-					<p>{n.createdAt}</p>
+				<div className='recent-note'>
+					<Link to={`/browse/${n._id}`}>{n.title}</Link>
+					<p>{n.body}</p>
 				</div>
 			))}
 		</div>
