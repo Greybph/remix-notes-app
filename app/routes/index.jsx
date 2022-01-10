@@ -1,4 +1,4 @@
-import { useActionData, useLoaderData } from 'remix'
+import { useActionData, useLoaderData, useTransition } from 'remix'
 import TitleForm from '~/components/TItleForm'
 import FullForm from '~/components/FullForm'
 import dbConnect from '~/utils/db.server'
@@ -20,9 +20,11 @@ export async function loader() {
 export default function Index() {
 	const title = useActionData()
 	const notes = useLoaderData()
+	const transition = useTransition()
 	return (
 		<main>
-			<TitleForm />
+			{transition.submission ? <em>Creating...</em> : null}
+			<TitleForm transition={transition} />
 			{title && <FullForm title={title} />}
 			<RecentNotes notes={notes} />
 		</main>

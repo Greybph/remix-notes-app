@@ -21,6 +21,7 @@ function Browse() {
 					</ul>
 				)
 			})}
+			<Outlet />
 		</div>
 	)
 }
